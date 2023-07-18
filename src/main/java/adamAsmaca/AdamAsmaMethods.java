@@ -1,6 +1,13 @@
 package adamAsmaca;
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
@@ -13,7 +20,7 @@ public class AdamAsmaMethods {
     String turkceKelimeYolu = "src/main/java/adamAsmaca/TurkeceKelimeler.txt";
     List<String> turkceKelimeler = turkceKelimeOku(turkceKelimeYolu);
     int idxKelime;
-    static int hataSayisi=0;
+    static int hataSayisi;
     String kelime;
     int kelimeSayisi=0;
     StringBuilder kelimeBul= new StringBuilder();
@@ -24,16 +31,15 @@ public class AdamAsmaMethods {
         System.out.println("||                                   ||");
         System.out.println("||   Adam Asma oyununa hoşgeldiniz.  ||");
         System.out.println("||                                   ||");
-        System.out.println("||                                   ||");
         System.out.println("============> made by msk <============");
         System.out.println("");
         System.out.println("===>>> OYUN YÜKLENİYOR <<<====");
         bekletme(5);
         sayiUret();
 
-        System.out.println(idxKelime);
-        System.out.println(turkceKelimeler.get(idxKelime));
-
+        //System.out.println(idxKelime);
+        //System.out.println(turkceKelimeler.get(idxKelime));
+        hataSayisi=0;
         kelime=turkceKelimeler.get(idxKelime);
         kelimeIncele(kelime);
 
@@ -58,7 +64,7 @@ public class AdamAsmaMethods {
                     }
                 }
                 System.out.println(kelimeBul);
-                System.out.println(harfCounter);
+                //System.out.println(harfCounter);
 
                 if(hataCounter==0){
                     hataSayisi++;
@@ -76,10 +82,12 @@ public class AdamAsmaMethods {
         System.out.println(harfCounter == kelime.length()-kelimeSayisi ? "Oyun bitti kazandiniz" : "Oyun bitti bu seferlik kaybettiniz");
         cikisDevam();
     }
+    String sorun;
     private void cikisDevam() {
         kelimeBul.delete(0,kelime.length());
         System.out.print("Devam etmek istiyormusunuz? Devam etmek için 'E', çıkmak için herhangi bir tuşa basınız : ");
-        String sorun = scan.next().substring(0, 1).toUpperCase();
+        sorun = scan.next().substring(0, 1).toUpperCase();
+
         if (sorun.equals("E")) {
             giris();
         } else {
@@ -89,6 +97,7 @@ public class AdamAsmaMethods {
     private void cikis(){
         System.out.println("Tebrikler iyi oynadınız. Oyundan Çıktınız.");
     }
+
     private void kelimeIncele(String kelime){
 
         for (int i = 0; i < this.kelime.length() ; i++) {

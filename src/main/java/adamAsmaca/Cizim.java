@@ -2,10 +2,13 @@ package adamAsmaca;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class Cizim extends JFrame {
+    public Timer timer;
     public Cizim(){
-        setTitle("Çizim Örneği");
+        setTitle("Adam Asmaca");
         setSize(300, 600);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
@@ -68,6 +71,7 @@ public class Cizim extends JFrame {
                 g.drawLine(250,370,230,390); //SagParmak
                 g.drawLine(250,370,250,390); //SagParmak
                 g.drawLine(250,370,265,390); //SagParmak
+
                 break;
             case 8:
                 g.drawLine(50, 40, 250, 40);
@@ -110,6 +114,7 @@ public class Cizim extends JFrame {
                 g.drawLine(195,540,165,550);  //SagAyak
                 g.drawLine(210,540,180,550); //SagAyak
                 g.drawLine(165,550,180,550);  //SagAyak
+
                 break;
             default:
                 System.out.println("Henuz Hata yapmadiniz");
