@@ -2,8 +2,6 @@ package adamAsmaca;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 public class Cizim extends JFrame {
     public Timer timer;
@@ -21,6 +19,8 @@ public class Cizim extends JFrame {
        int cznSayi= czm.hataSayisi;
         //int cznSayi=9;
         switch (cznSayi){
+            case 0:
+                break;
             case 1:
                 g.drawLine(50, 40, 250, 40);
                 break;
@@ -114,19 +114,9 @@ public class Cizim extends JFrame {
                 g.drawLine(195,540,165,550);  //SagAyak
                 g.drawLine(210,540,180,550); //SagAyak
                 g.drawLine(165,550,180,550);  //SagAyak
-
                 break;
             default:
                 System.out.println("Henuz Hata yapmadiniz");
         }
     }
-
-    public static void main(String[] args) {
-        SwingUtilities.invokeLater(new Runnable() {
-            public void run() {
-                new Cizim();
-            }
-        });
-    }
-
 }

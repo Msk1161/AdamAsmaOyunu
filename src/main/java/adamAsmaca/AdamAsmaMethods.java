@@ -1,13 +1,5 @@
 package adamAsmaca;
 import javax.swing.*;
-import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-
-import javax.swing.*;
-import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
@@ -22,7 +14,7 @@ public class AdamAsmaMethods {
     int idxKelime;
     static int hataSayisi;
     String kelime;
-    int kelimeSayisi=0;
+    int kelimeSayisi;
     StringBuilder kelimeBul= new StringBuilder();
     Scanner scan = new Scanner(System.in);
     public void giris(){
@@ -40,6 +32,9 @@ public class AdamAsmaMethods {
         //System.out.println(idxKelime);
         //System.out.println(turkceKelimeler.get(idxKelime));
         hataSayisi=0;
+        kelimeSayisi=0;
+        cizim();
+
         kelime=turkceKelimeler.get(idxKelime);
         kelimeIncele(kelime);
 
@@ -69,20 +64,23 @@ public class AdamAsmaMethods {
                 if(hataCounter==0){
                     hataSayisi++;
                     System.out.println("Hata sayısı : "+hataSayisi);
-
-                    SwingUtilities.invokeLater(new Runnable() {
-                        public void run() {
-                            new Cizim();
-                        }
-                    });
+                    cizim();
                 }
             }
 
     }while (hataSayisi<9 && harfCounter<kelime.length()-kelimeSayisi);
-        System.out.println(harfCounter == kelime.length()-kelimeSayisi ? "Oyun bitti kazandiniz" : "Oyun bitti bu seferlik kaybettiniz");
+        System.out.println(harfCounter == kelime.length()-kelimeSayisi ? "Oyun bitti kazandiniz" : "Oyun bitti bu seferlik kaybettiniz. Kelime -> "+kelime);
         cikisDevam();
     }
     String sorun;
+    private void cizim(){
+        SwingUtilities.invokeLater(new Runnable() {
+            public void run() {
+                new Cizim();
+            }
+        });
+
+    }
     private void cikisDevam() {
         kelimeBul.delete(0,kelime.length());
         System.out.print("Devam etmek istiyormusunuz? Devam etmek için 'E', çıkmak için herhangi bir tuşa basınız : ");
